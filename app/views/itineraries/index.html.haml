@@ -1,0 +1,27 @@
+%h1 Listing itineraries
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Desc
+      %th Price
+      %th City
+      %th
+      %th
+      %th
+
+  %tbody
+    - @itineraries.each do |itinerary|
+      %tr
+        %td= itinerary.name
+        %td= itinerary.desc
+        %td= itinerary.price
+        %td= itinerary.city
+        %td= link_to 'Show', itinerary
+        %td= link_to 'Edit', edit_itinerary_path(itinerary)
+        %td= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Itinerary', new_itinerary_path

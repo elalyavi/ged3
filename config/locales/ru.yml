@@ -1,0 +1,119 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+    tours:
+      new: Создание тура
+      edit: Обновление тура
+      header_index: Туры
+      header_show: Тур
+      search: Поиск
+    excursions:
+      new: Создание экскурсии
+      edit: Обновление экскурсии
+      header_index: Экскурсии
+      header_show: Экскурсия
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    back: Назад
+    home: Вернуться на главную
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      excursion: Действительно удалить экскурсию?
+      tour: Действительно удалить тур?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+      excursion: Новая экскурсия
+      tour: Новый тур
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    tours:
+      new: "Создание тура"
+      edit: "Обновление тура"
+      index: "Список туров"
+      search: Поиск       
+    excursions:
+      new: "Создание экскурсии"
+      edit: "Обновление экскурсии"
+      index: "Список экскурсий"
+    itineraries:
+      new: "Создание нового маршрута"
+      edit: "Обновление маршрута"
+    cities:
+      new: "Создание города"
+      edit: "Обновление города"
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      city:
+        name: Город отправления
+      tour:
+        add_desc: Дополнительное описание
+        departure_date: Дата отъезда
+        add_payment: Дополнительный взнос
+        count_days: Количество дней тура
+        itinerary: Маршрут
+        itinerary_id: Маршрут
+        search: Поиск       
+      excursion:
+        name: Название 
+        describe: Описание 
+        price: Цена
+        city: Город 
+        city_id: Город
+      itinerary:
+        name: Название
+        desc: Описание
+        price: Цена
+        city: Город
+        city_id: Город
+      role: 
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish

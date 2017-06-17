@@ -1,0 +1,14 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.excursions.edit')
+  %li
+    = link_to(@excursion.name, @excursion)
+  %li
+    = link_to 'Экскурсионные тур', excursions_path
+  %li
+    Изменение данных
+
+.page-header
+  %h1= t('headers.excursion.edit')
+  
+= render 'form'

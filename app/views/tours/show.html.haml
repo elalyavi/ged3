@@ -1,0 +1,26 @@
+=breadcrumb_tag do
+  %li.active
+    = @tour.departure_date
+  %li
+    = link_to 'Экскурсионные туры', tour_path
+  %li
+    Тур
+
+%h1= @tour.departure_date
+
+%dl
+  %dt= Tour.human_attribute_name(:departure_date)
+  %dd= @tour.departure_date
+
+  %dt= Tour.human_attribute_name(:add_desc)
+  %dd= @tour.add_desc
+
+  %dt= Tour.human_attribute_name(:add_payment)
+  %dd= @tour.add_payment
+
+  %dt= Tour.human_attribute_name(:count_days)
+  %dd= @tour.count_days
+
+  %dt= Tour.human_attribute_name(:itinerary)
+  %dd= @tour.itinerary.name
+

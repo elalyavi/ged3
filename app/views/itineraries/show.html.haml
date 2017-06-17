@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @itinerary.name
+%p
+  %b Desc:
+  = @itinerary.desc
+%p
+  %b Price:
+  = @itinerary.price
+%p
+  %b City:
+  = @itinerary.city
+
+= link_to 'Edit', edit_itinerary_path(@itinerary)
+\|
+= link_to 'Back', itineraries_path

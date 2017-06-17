@@ -1,0 +1,7 @@
+
+.row
+  .col-md-12
+    .form-group
+      = f.label :city_id
+      = f.select :city_id,  City.all.collect{|x| [x.name, x.id]}, {},{:prompt => ""}
+      = f.error_messages_for(:city_id)

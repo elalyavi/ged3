@@ -1,0 +1,33 @@
+
+.row
+  .col-md-6
+    .form-group
+      = fr.label :name
+      = fr.text_area :name, class: 'form-control', rows: 1
+      = fr.error_messages_for(:name)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :desc
+      = fr.text_area :desc, class: 'form-control', rows: 1
+      = fr.error_messages_for(:desc)
+  .row
+    .col-md-6
+      .form-group
+        = fr.label :price
+        .input-group
+          = fr.text_field :price, class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-ruble
+        = fr.error_messages_for(:price)
+
+.row
+  .col-md-12
+    .form-group
+      = fr.label :city_id
+      = fr.select :city_id,  City.all.map{|x| [x.name, x.id]}, {}, class: 'form-control'
+      = fr.error_messages_for(:city_id)
+
+  .actions.margin-small-top
+    = fr.submit nil, class: 'btn btn-primary'
+  

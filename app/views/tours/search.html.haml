@@ -1,0 +1,64 @@
+=breadcrumb_tag do
+  %li.active
+    = link_to 'Туры', tours_path
+  %li
+    = t('headers.tours.search')
+
+
+.page-header
+  %h1= t('headers.tours.search')
+
+
+.container
+  = form_tag(search_tours_path(), :method => "get") do
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Дата отправления" 
+          = text_field_tag 'search[departure_date]', params['search']['departure_date'], placeholder: "Дата отправления пишется в формате 14.06.2017", class: 'form-control'
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Дополнительное описание"
+          = text_field_tag 'search[add_desc]', params['search']['add_desc'], placeholder: "Дополнительное описание", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Дополнительный взнос" 
+          = text_field_tag 'search[add_payment]', params['search']['add_payment'], placeholder: "Дополнительный взнос", class: 'form-control'
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Количество дней тура" 
+          = text_field_tag 'search[count_days]', params['search']['count_days'], placeholder: "Количество дней тура", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Маршрут:"
+          = select_tag('search[itinerary_id]' , options_for_select(itinerary_select(),), {include_blank: true, class: 'form-control'})
+
+          
+
+    = submit_tag(:search_button, value: 'Поиск', class: 'btn btn-default')
+    = link_to tours_path, class: 'btn btn-warning' do
+      = fa_icon :backward
+      = t('buttons.back')
+    = link_to root_path, class: "btn btn-primary" do
+      = fa_icon "home"
+      = t('buttons.home')
+
+.index_table
+  - @tours.each do |tour|
+    .row
+      .col-md-2.center= Tour.human_attribute_name(:departure_date)
+      .col-md-2.center= Tour.human_attribute_name(:add_desc)
+      .col-md-2.center= Tour.human_attribute_name(:add_payment)
+      .col-md-2.center= Tour.human_attribute_name(:count_days)
+      .col-md-2.center= Tour.human_attribute_name(:itinerary)
+
+    .row
+      .col-md-2.center= tour.departure_date
+      .col-md-2.center= tour.add_desc
+      .col-md-2.center= tour.add_payment
+      .col-md-2.center= tour.count_days
+      .col-md-2.center= tour.itinerary.name
+      .col-md-12.center
+        

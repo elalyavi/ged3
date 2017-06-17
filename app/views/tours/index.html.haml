@@ -1,0 +1,53 @@
+
+=breadcrumb_tag do
+  %li.active
+    Туры
+  %li
+    Данные о туре
+
+.page-header
+  %h1= t('headers.tours.index')
+
+= link_to new_tour_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.tour')
+= link_to search_tours_path(), class: 'btn btn-default' do
+  = fa_icon :search
+  = t('buttons.search.Поиск')
+
+.row
+  .col-xs-12
+    %table.table.table-hover
+      %tbody
+        - @tours.each do |tour|
+          %tr.active
+            %th= Tour.human_attribute_name(:departure_date)
+            %td= tour.departure_date
+          %tr
+            %th= Tour.human_attribute_name(:add_desc)
+            %td= tour.add_desc
+          %tr
+            %th= Tour.human_attribute_name(:add_payment)
+            %td= tour.add_payment
+          %tr
+            %th= Tour.human_attribute_name(:count_days)
+            %td= tour.count_days
+          %tr
+            %th= Tour.human_attribute_name(:itinerary)
+            %td= tour.itinerary.name
+          %tr
+
+
+            %td
+              = link_to tour, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_tour_path(tour), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to tour, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.tour') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+            %td

@@ -1,0 +1,14 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.tours.edit')
+  %li
+    = link_to(@tour.departure_date, @tour)
+  %li
+    = link_to 'Тур', tours_path
+  %li
+    Изменение данных
+
+.page-header
+  %h1= t('headers.tour.edit')
+  
+= render 'form'

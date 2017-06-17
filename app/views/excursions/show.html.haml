@@ -1,0 +1,24 @@
+=breadcrumb_tag do
+  %li.active
+    = @excursion.name
+  %li
+    = link_to 'Экскурсионные туры', excursion_path
+  %li
+    Экскурсия
+
+%h1= @excursion.name
+
+%dl
+  %dt= Excursion.human_attribute_name(:name)
+  %dd= @excursion.name
+
+  %dt= Excursion.human_attribute_name(:describe)
+  %dd= @excursion.describe
+
+  %dt= Excursion.human_attribute_name(:price)
+  %dd= @excursion.price
+
+  %dt= Excursion.human_attribute_name(:city)
+  %dd= @excursion.city.name
+
+

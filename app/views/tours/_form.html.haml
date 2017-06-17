@@ -1,0 +1,48 @@
+= form_for @tour do |f|
+  = error_messages_for @tour
+
+  .row
+    .col-md-6
+      .form-group
+        = f.label :departure_date
+        .input-group.date.datepicker
+          = f.text_field :departure_date, value: lnil(f.object.departure_date), class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:departure_date)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :add_desc
+        = f.text_field :add_desc, class: 'form-control'
+        = f.error_messages_for(:add_desc)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :add_payment
+        .input-group
+          = f.text_field :add_payment, class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-ruble
+        = f.error_messages_for(:add_payment)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :count_days
+        = f.text_field :count_days, class: 'form-control'
+        = f.error_messages_for(:count_days)
+
+  %fieldset
+    %legend Поле для маршрута
+    %button.btn.btn-info#itinerary-change-exist-btn Выбрать/Создать
+    %div.left#itinerary-change{"data-content-new": "#{new_itinerary_form(f)}",
+      "data-content-exist": "#{render 'exist_itinerary', f: f}"}
+      = f.fields_for(:itinerary) do |fr|
+        = fr.hidden_field(:id)
+        = render('tours/one_itinerary_form', fr: fr)  
+
+  
+
+
+
+
