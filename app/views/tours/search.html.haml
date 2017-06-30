@@ -32,8 +32,8 @@
     .row
       .col-md-5
         .form-group
-          = label_tag 'search', "Маршрут:"
-          = select_tag('search[itinerary_id]' , options_for_select(itinerary_select(),), {include_blank: true, class: 'form-control'})
+          = label_tag 'search', "Город отправления:"
+          = select_tag('search[city_id]' , options_for_select(city_select(),), {include_blank: true, class: 'form-control'})
 
           
 
